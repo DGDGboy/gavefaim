@@ -6,6 +6,7 @@
 
       <div class="form-inputs">
         <%= f.input :name %>
+        <%= f.input :gender, label: 'Genre',collection: User::GENDER %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
