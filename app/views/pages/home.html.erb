@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);">
+  <div class="container">
+    <div class="prez">
+      <div class="logo"><%= image_tag "logo-blc.png" %></div>
+      <p>
+      <span id="banner-typed-text"></span>
+      </p>
+      <!-- <p>Deux amoureux de la gastronomie vous présentent leurs découvertes culinaires bordelaises</p> -->
+      <% if user_signed_in? %>
+        <a class="btn btn-flat" <%= link_to "Bienvenue #{current_user.name}", restaurants_path %></a>
+      <% else %>
+        <a class="btn btn-flat" <%= link_to "Visiter", restaurants_path %></a>
+      <% end %>
+    </div>
+  </div>
+</div>

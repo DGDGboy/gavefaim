@@ -1,0 +1,14 @@
+<h1>Nos meilleurs restaurants</h1>
+
+
+ <% @restaurants.each do |restaurant| %>
+  <h2><%= restaurant.name %></h2>
+  <p><%= @restaurant.description %></p>
+  <p><%= restaurant.address %></p>
+  <p><%= restaurant.rating %></p>
+  <p><%= restaurant.style %></p>
+  <%= link_to "Voir", restaurant_path(restaurant)  %>
+  <br>
+  <%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+    confirm: "C'est ton dernier mot?" } %>
+ <% end %>

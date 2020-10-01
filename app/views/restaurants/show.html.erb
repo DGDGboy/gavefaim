@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.description %></p>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.rating %></p>
+      <p><%= @restaurant.style %></p>
+      <p><%= cl_image_tag @restaurant.images[0].key %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+      <h5>Commentaires</h5>
+      <ul class="list-group">
+          <% @restaurant.reviews.each do |review| %>
+            <li class="list-group-item">
+              <%= review.content %>
+              <%= link_to "Supprimer le commentaire", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
+            </li>
+          <% end %>
+      </ul>
 
-<p>
-  <strong>User:</strong>
-  <%= @restaurant.user_id %>
-</p>
+      <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %>
+      <br>
+      <%= link_to "Retour à la list", restaurants_path  %>
+      <br>
+      <%= link_to "Modifier", edit_restaurant_path(@restaurant) %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+    </div>
+  </div>
+</div>

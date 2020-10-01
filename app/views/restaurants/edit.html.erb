@@ -1,6 +1,24 @@
-<h1>Editing Restaurant</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
 
-<%= render 'form', restaurant: @restaurant %>
+      <h2>Modifier les infos du restaurant</h2>
+      <br>
 
-<%= link_to 'Show', @restaurant %> |
-<%= link_to 'Back', restaurants_path %>
+      <%= simple_form_for(@restaurant) do |f| %>
+
+        <%= f.input :images, as: :file, input_html: { multiple: true } %>
+        <%= f.input :name, label: "Nom du restau", required: true %>
+        <%= f.input :description, label: "ton avis" %>
+        <%= f.input :address, label: "Adresse du restaurant", required: true %>
+        <%= f.input :style, label: "Style du restaurant" , required: true%>
+        <%= f.input :rating, label: "ta note", required: true %>
+        <div class="form-actions">
+          <%= f.button :submit, "Actualiser l'article" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

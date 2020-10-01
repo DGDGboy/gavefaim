@@ -1,5 +1,23 @@
-<h1>New Restaurant</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
 
-<%= render 'form', restaurant: @restaurant %>
+      <h2>Créer un nouveau post</h2>
+      <br>
+      <%= simple_form_for(@restaurant) do |f| %>
 
-<%= link_to 'Back', restaurants_path %>
+        <%= f.input :images, as: :file, input_html: { multiple: true } %>
+        <%= f.input :name, label: "Nom du restau", required: true %>
+        <%= f.input :description, label: "ton avis" %>
+        <%= f.input :address, label: "Adresse du restaurant", required: true %>
+        <%= f.input :style, label: "Style du restaurant" , required: true%>
+        <%= f.input :rating, label: "ta note", required: true %>
+        <div class="form-actions">
+          <%= f.button :submit, "Publier l'article" %>
+        </div>
+
+        <%= link_to "Retour à la list", restaurants_path  %>
+      <% end %>
+    </div>
+  </div>
+</div>

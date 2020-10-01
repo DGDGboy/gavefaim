@@ -1,0 +1,120 @@
+.card-post {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-post img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-post h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-post p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-post .card-post-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-post-infos .card-post-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+
+//-----------------------
+
+.card-trip {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  padding: 15px;
+}
+
+.card-trip h2 {
+  font-size: 29px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.card-trip h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 25px;
+  top: -35px;
+  width: 40px;
+}
+
+.hl1line {
+  border-top: 2px solid rgba(47, 46, 46, 1);
+  border-bottom: 2px solid rgba(47, 46, 46, 1);
+  padding: 7px 0 0 0;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 75px;
+}
+
+.card-trip .btn-flat {
+  color: #191919;
+  padding: 4px 12px;
+  border-color: #191919;
+  background: white;
+  transition: background 0.3s ease;
+  border-width: 2px;
+  opacity: 0.7;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.card-trip .btn-flat:hover {
+  background: #191919;
+  color: white;
+}

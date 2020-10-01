@@ -1,29 +1,99 @@
-<p id="notice"><%= notice %></p>
+<div class="banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1549881464-ddb24b85533d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80);">
 
-<h1>Restaurants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <!-- ---------3 last-------------- -->
 
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.user_id %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="container">
+    <div class="intro">
+      <h1>Nos dernières <strong>découvertes</strong></h1>
+      <p>Chaque mois un nouveau restaurant se rajoute à notre list</p>
+      <%= link_to "Nouveau post", new_restaurant_path %>
+    </div>
+
+    <div class="cards">
+    <% @restaurants.last(3).each do |restaurant| %>
+      <div class="card-trip">
+        <%= cl_image_tag restaurant.images[0].key %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= restaurant.name %></h2>
+            <p><%= restaurant.address %></p>
+            <p><%= restaurant.style %></p>
+            <div class="hl1line"></div>
+            <h3><%= restaurant.description[0, 40] %>...</h3>
+            <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
+            <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+                confirm: "C'est ton dernier mot?" } %></a>
+          </div>
+          <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
+          <div class="card-trip-user avatar-bordered">
+
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+    <!-- -------top 3----------- -->
+  <div class="top3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?cs=srgb&dl=pexels-cottonbro-3826435.jpg&fm=jpg);">
+    <div class="container">
+      <div class="intro">
+        <h1>Notre <strong>top</strong> 3</h1>
+        <p>Voici nos 3 restaurants préférés du moment !</p>
+      </div>
 
-<br>
+      <div class="cards">
+      <% @restaurants.where(rating: 9..10).last(3).each do |restaurant| %>
+        <div class="card-trip">
+          <%= cl_image_tag restaurant.images[0].key %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= restaurant.name %></h2>
+              <p><%= restaurant.address %></p>
+              <p><%= restaurant.style %></p>
+              <div class="hl1line"></div>
+              <h3><%= restaurant.description[0, 40] %>...</h3>
+              <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
+              <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+                  confirm: "C'est ton dernier mot?" } %></a>
+            </div>
+            <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
+            <img src="https://pbs.twimg.com/profile_images/3252299897/a88b1777917d9d1a07ccfd8fb09979f2_400x400.jpeg" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  </div>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+    <!-- -------list de tous les restau----------- -->
+  <div class="container">
+    <div class="intro">
+      <h1><strong>liste</strong> des <strong>restaurants</strong></h1>
+      <p>Voici tous les restaurants que l'on a visités !</p>
+    </div>
+
+    <div class="cards">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card-trip">
+        <%= cl_image_tag restaurant.images[0].key %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= restaurant.name %></h2>
+            <p><%= restaurant.address %></p>
+            <p><%= restaurant.style %></p>
+            <div class="hl1line"></div>
+            <h3><%= restaurant.description[0, 40] %>...</h3>
+            <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
+            <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+                confirm: "C'est ton dernier mot?" } %></a>
+          </div>
+          <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
+          <img src="https://pbs.twimg.com/profile_images/3252299897/a88b1777917d9d1a07ccfd8fb09979f2_400x400.jpeg" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>
