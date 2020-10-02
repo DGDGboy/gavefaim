@@ -31,9 +31,9 @@ jerome.save!
 
 
 puts "Creating restaurants...🍲"
-racines = Restaurant.create(name: "Racines", description: "Nous avons passé un moment incroyable", rating: 8, address: "59 Rue Georges Bonnac, 33000 Bordeaux", style: "semi gastronomique", user: jerome)
-symbiose = Restaurant.create(name: "Symbiose", description: "Pour nous, notre meilleure adresse bordelaise",rating: 9, address: "4 Quai des Chartrons, 33000 Bordeaux", style: "semi gastronomique", user: emilie)
-cyusha = Restaurant.create(name: "C'yusha", description: "Une découverte fabuleuse,...",rating: 9, address: "12 Rue Ausone, 33000 Bordeaux", style: "gastronomique", user: emilie)
+racines = Restaurant.create(name: "Chez Racines", description: "Nous avons passé un moment incroyable", rating: 8, address: "59 Rue Georges Bonnac, 33000 Bordeaux", style: "semi gastronomique", user: jerome)
+symbiose = Restaurant.create(name: "Le Symbiose", description: "Pour nous, notre meilleure adresse bordelaise",rating: 9, address: "4 Quai des Chartrons, 33000 Bordeaux", style: "semi gastronomique", user: emilie)
+cyusha = Restaurant.create(name: "Le C'yusha", description: "Une découverte fabuleuse,...",rating: 9, address: "12 Rue Ausone, 33000 Bordeaux", style: "gastronomique", user: emilie)
 
 puts "✅ Adding photos to resturants"
 photo1 = URI.open("https://res.cloudinary.com/dyxvuottl/image/upload/v1601228926/fhqzjvo5ldjbvzy3bjvc.jpg")

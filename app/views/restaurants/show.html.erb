@@ -1,28 +1,27 @@
 <!-----------Banner------------>
 
-<div class="bannershow" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.images[0].key %>);">
+<div class="banner jarallax" data-jarallax data-speed=".8" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.images[0].key %>);">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="container">
+          <div class="intro">
+            <h1><%= @restaurant.name %></h1>
+            <p>Par <%= @restaurant.user.name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
-      <h1><%= @restaurant.name %></h1>
       <p><%= @restaurant.description %></p>
       <p><%= @restaurant.address %></p>
       <p><%= @restaurant.rating %></p>
       <p><%= @restaurant.style %></p>
-      <p><%= cl_image_tag @restaurant.images[0].key %></p>
-
-      <h5>Commentaires</h5>
-      <ul class="list-group">
-          <% @restaurant.reviews.each do |review| %>
-            <li class="list-group-item">
-              <%= review.content %>
-              <%= link_to "Supprimer le commentaire", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
-            </li>
-          <% end %>
-      </ul>
-
-
+<!--       <p><%= cl_image_tag @restaurant.images[0].key %></p>
+ -->
       <div class="slider">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -46,12 +45,26 @@
           </a>
         </div>
       </div>
+<br>
+<!-----------commentaires------------>
+      <div class="intro">
+        <h1>Ce que vous en pensez</h1>
+        <p>Si vous avez des commentaires ou des demandes particulières</p>
+        <br>
+        <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %>
+        <ul class="list-group">
+            <% @restaurant.reviews.each do |review| %>
+              <li class="list-group-item">
+                <%= review.content %>
+                <br>
+                <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
+              </li>
+            <% end %>
+        </ul>
+      </div>
 
 
 
-      <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %>
-      <br>
-      <%= link_to "Retour", restaurants_path  %>
       <br>
       <%= link_to "Modifier", edit_restaurant_path(@restaurant) %>
 
