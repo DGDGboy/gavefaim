@@ -6,18 +6,21 @@
       <br>
       <%= simple_form_for(@restaurant) do |f| %>
 
-        <%= f.input :images, as: :file, input_html: { multiple: true } %>
-        <%= f.input :name, label: "Nom du restau", required: true %>
-        <%= f.input :description, label: "ton avis" %>
-        <%= f.input :address, label: "Adresse du restaurant", required: true %>
-        <%= f.input :style, label: "Style du restaurant" , required: true%>
-        <%= f.input :rating, label: "ta note", required: true %>
-        <div class="form-actions">
-          <%= f.button :submit, "Publier l'article" %>
-        </div>
+        <div class="form-inputs">
 
-        <%= link_to "Retour à la list", restaurants_path  %>
+          <%= f.input :images, as: :file, input_html: { multiple: true } %>
+          <%= f.input :name, label: "Nom du restau", required: true %>
+          <%= f.input :description, label: "ton avis" %>
+          <%= f.input :address, label: "Adresse du restaurant", required: true %>
+          <%= f.input :style, label: "Style du restaurant" , required: true%>
+          <%= f.input :rating, label: "ta note", required: true %>
+          <div class="form-actions">
+            <%= f.button :submit, "publier l'article" %>
+            <%= link_to "Retour", restaurants_path  %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
+
