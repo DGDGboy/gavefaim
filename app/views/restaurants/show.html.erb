@@ -7,6 +7,7 @@
           <div class="intro">
             <h1><%= @restaurant.name %></h1>
             <p>Par <%= @restaurant.user.name %></p>
+            <h2>"<%= @restaurant.title %>"</h2>
             <p>"<%= @restaurant.description %>"</p>
           </div>
         </div>
@@ -56,7 +57,10 @@
         <ul class="list-group">
             <% @restaurant.reviews.each do |review| %>
               <li class="list-group-item">
-                <%= review.content %>
+                <h8> <%= @restaurant.user.name %> a écrit le <%= Time.now %>:</h8>
+                <br>
+                <h4><%= review.content %></h4>
+
                 <br>
                 <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
               </li>
