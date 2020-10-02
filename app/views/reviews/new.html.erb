@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
-      <h1>Ajouter un commentaire pour cet article sur <%= @restaurant.name %></h1>
+      <h1>Rédiger un commentaire</h1>
       <%= simple_form_for [ @restaurant, @review ] do |f| %>
         <%= f.input :content %>
         <%= f.submit "Submit review", class: "btn btn-primary" %>

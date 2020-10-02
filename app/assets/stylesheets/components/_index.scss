@@ -9,6 +9,7 @@
 @import "footer";
 @import "card-post";
 @import "cards";
+@import "show";
 
 body {
   min-height: 100%;
@@ -17,6 +18,11 @@ body {
 }
 strong {
   font-weight:normal;
+}
+
+em {
+  font-weight:bold;
+  font-style: normal;
 }
 
 .intro{
@@ -29,7 +35,7 @@ strong {
 .intro h1{
   color: white;
   font-family: 'helvetica';
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .intro p{
@@ -42,6 +48,7 @@ strong {
   padding-bottom: 1px;
   padding-top: 45px;
   margin-bottom: 65px;
+  background-size: cover;
 }
 
 .hidden {
