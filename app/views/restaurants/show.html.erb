@@ -1,12 +1,13 @@
 <!-----------Banner------------>
 
-<div class="banner jarallax" data-jarallax data-speed=".8" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.images[0].key %>);">
+<div class="bannershow jarallax" data-jarallax data-speed=".8" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.images[0].key %>);">
     <div class="row">
       <div class="col-6 offset-3">
         <div class="container">
           <div class="intro">
             <h1><%= @restaurant.name %></h1>
             <p>Par <%= @restaurant.user.name %></p>
+            <p>"<%= @restaurant.description %>"</p>
           </div>
         </div>
       </div>
@@ -16,7 +17,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
-      <p><%= @restaurant.description %></p>
+
       <p><%= @restaurant.address %></p>
       <p><%= @restaurant.rating %></p>
       <p><%= @restaurant.style %></p>
