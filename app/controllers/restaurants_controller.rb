@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :top]
-  skip_before_action :authenticate_user!, only: [:index,]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def top
     @restaurants = Restaurant.where(rating: 9..10)
@@ -42,7 +42,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :description, :rating, :style, images: [], photos: [])
+    params.require(:restaurant).permit(:name, :title, :address, :description, :rating, :style, images: [], photos: [])
   end
 
   def set_restaurant
