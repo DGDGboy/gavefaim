@@ -8,7 +8,7 @@
             <h1><%= @restaurant.name %></h1>
             <p>Par <%= @restaurant.user.name %></p>
             <h2>"<%= @restaurant.title %>"</h2>
-            <p>"<%= @restaurant.description %>"</p>
+
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
-
+      <p>"<%= @restaurant.description %>"</p>
       <p><%= @restaurant.address %></p>
       <p><%= @restaurant.rating %></p>
       <p><%= @restaurant.style %></p>
@@ -57,11 +57,10 @@
         <ul class="list-group">
             <% @restaurant.reviews.each do |review| %>
               <li class="list-group-item">
-                <h8> <%= @restaurant.user.name %> a écrit le <%= Time.now %>:</h8>
+                <ul><h8> <%= @restaurant.user.name %> a écrit le <%= review.created_at.strftime("%d-%m-%Y à %k:%M") %></h8></ul>
                 <br>
-                <h4><%= review.content %></h4>
+                <h5><%= review.content %></h5>
 
-                <br>
                 <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
               </li>
             <% end %>
