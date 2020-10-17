@@ -1,34 +1,12 @@
 <div class="contact" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.pexels.com/photos/3815830/pexels-photo-3815830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover">
+  <div class="blank"></div>
   <div class="container">
     <h1>N'hesitez pas à nous <strong>contacter</strong></h1>
-    <div class="lignes">
-    </div>
+    <div class="lignes"></div>
+      <h4>Ici, pas de formulaire avec 10 champs à remplir.
+      Si vous avez des questions, des demandes particuliaires ou si vous voulez juste
+      échanger avec nous, contactez-nous par mail à <br>gavefaim@gmail.com</h4>
 
-    <div class="">
-      <%= form_for @contact do |f| %>
-        <%= f.label :name %><br>
-        <%= f.text_field :name, required: true %>
-
-        <br>
-
-        <%= f.label :email %><br>
-        <%= f.email_field :email, required: true %>
-
-        <br>
-
-        <%= f.label :message %><br>
-        <%= f.text_area :message, as: :text %>
-
-        <div class="hidden">
-          <%= f.label :nickname %><br>
-          <%= f.text_field :nickname, hint: "leave this field blank" %>
-        </div>
-
-        <br>
-
-        <%= f.submit 'Envoyer', class: "btn-flat" %>
-
-      <% end %>
-    </div>
+      <h5>Merci 🙏</h5>
   </div>
 </div>
