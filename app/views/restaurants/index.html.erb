@@ -7,7 +7,10 @@
     <div class="intro">
       <h1>Nos dernières <strong>découvertes</strong></h1>
       <p>Chaque mois un nouveau restaurant se rajoute à notre liste</p>
-      <%= link_to "Nouveau post", new_restaurant_path %>
+      <% if current_user.nil? %>
+      <% else current_user.superadmin_role? || current_user.supervisor_role? %>
+        <%= link_to "Nouveau post", new_restaurant_path %>
+      <% end %>
     </div>
 
     <div class="cards">
@@ -22,8 +25,11 @@
             <div class="hl1line"></div>
             <h3><%= restaurant.description[0, 40] %>...</h3>
             <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
-            <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+            <% if current_user.nil? %>
+            <% else current_user.superadmin_role? || current_user.supervisor_role? %>
+              <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
                 confirm: "C'est ton dernier mot?" } %></a>
+            <% end %>
           </div>
           <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
           <div class="card-trip-user avatar-bordered">
@@ -54,8 +60,11 @@
               <div class="hl1line"></div>
               <h3><%= restaurant.description[0, 40] %>...</h3>
               <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
-              <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
-                  confirm: "C'est ton dernier mot?" } %></a>
+              <% if current_user.nil? %>
+              <% else current_user.superadmin_role? || current_user.supervisor_role? %>
+                <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+                confirm: "C'est ton dernier mot?" } %></a>
+            <% end %>
             </div>
             <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
             <img src="https://pbs.twimg.com/profile_images/3252299897/a88b1777917d9d1a07ccfd8fb09979f2_400x400.jpeg" class="card-trip-user avatar-bordered" />
@@ -85,8 +94,11 @@
             <div class="hl1line"></div>
             <h3><%= restaurant.description[0, 40] %>...</h3>
             <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
-            <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
+            <% if current_user.nil? %>
+            <% else current_user.superadmin_role? || current_user.supervisor_role? %>
+              <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
                 confirm: "C'est ton dernier mot?" } %></a>
+            <% end %>
           </div>
           <h4 class="card-trip-pricing"><%= restaurant.rating %>/10</h4>
           <img src="https://pbs.twimg.com/profile_images/3252299897/a88b1777917d9d1a07ccfd8fb09979f2_400x400.jpeg" class="card-trip-user avatar-bordered" />
