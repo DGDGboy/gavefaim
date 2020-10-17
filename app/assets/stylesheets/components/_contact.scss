@@ -22,11 +22,12 @@
 
 .contact h4{
   text-align: center;
+  font-size: 27px;
 }
 
 .contact h5{
   text-align: center;
-  margin-top: 25px;
+  margin-top: 23px;
 }
 
 .contact p {
@@ -49,16 +50,56 @@
 
   .contact h4 {
     color: black;
-    font-size: 37px;
+    font-size: 15px;
     font-family: "helvetica";
     font-weight: normal;
     text-align: center;
   }
   .contact h5 {
     color: black;
-    font-size: 22px;
+    font-size: 14px;
     font-family: "helvetica";
     font-weight: normal;
     text-align: center;
+  }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 676px) {
+  #grid {
+    grid-template-columns: 1fr;
+  }
+  .contact .container{
+    width: 900px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  #grid {
+    grid-template-columns: 1fr;
+  }
+  .contact .container{
+    width: 950px;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact .container{
+    width: 950px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact .container {
+    width: 950px;
   }
 }
