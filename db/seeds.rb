@@ -16,18 +16,20 @@ Review.destroy_all
 User.destroy_all
 
 
+puts "Creating Admins..."
+jerome = User.create!(name: "Jérôme", password: "29082020", role: 0, email: "toulouse.jerome@gmail.com")
+emilie = User.create!(name: "Emilie", password: "29082020", role: 0, email: "emilie.lws@gmail.com")
+gavefaim = User.create!(name: "Emilie et Jérôme", password: "29082020", role: 0,  email: "gavefaim@gmail.com")
+puts "Admins created ✅"
+
 puts "Creating User..."
-jerome = User.create!(name: "Jérôme", password: "29082020", email: "toulouse.jerome@gmail.com")
-emilie = User.create!(name: "Emilie", password: "29082020", email: "emilie.lws@gmail.com")
-gavefaim = User.create!(name: "Emilie et Jérôme", password: "29082020", email: "gavefaim@gmail.com")
+james = User.create!(name: "James", password: "29082020", role: 1, email: "james@gmail.com")
 puts "User created ✅"
 
 puts "Adding photo to Users..."
 photo = URI.open("https://res.cloudinary.com/dyxvuottl/image/upload/v1601387217/s0rajfkgbc37rym8897s4bb4jd24.jpg")
 emilie.photo.attach(io: photo, filename: 'photo.jpeg', content_type: 'image/jpeg')
 emilie.save!
-
-
 
 photo = URI.open("https://res.cloudinary.com/dyxvuottl/image/upload/v1601387219/cu71gw24mvpalybr8beq11dj7nq6.jpg")
 jerome.photo.attach(io: photo, filename: 'photo.jpeg', content_type: 'image/jpeg')
