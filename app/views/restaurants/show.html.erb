@@ -61,6 +61,7 @@
                 <br>
                 <h5><%= review.content %></h5>
 
+
                 <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
               </li>
             <% end %>
@@ -70,7 +71,11 @@
 
 
       <br>
-      <%= link_to "Modifier", edit_restaurant_path(@restaurant) %>
+      <% if current_user.nil? %>
+      <% elsif current_user.superadmin_role? || current_user.supervisor_role? %>
+        <a class="btn btn-flat"<%= link_to "Modifier", edit_restaurant_path(@restaurant), method: :delete, data: {
+          confirm: "C'est ton dernier mot?" } %></a>
+      <% end %>
 
     </div>
   </div>
