@@ -26,7 +26,7 @@
             <h3><%= restaurant.description[0, 40] %>...</h3>
             <a class="btn btn-flat" <%= link_to "Lire la suite", restaurant_path(restaurant) %></a>
             <% if current_user.nil? %>
-            <% else current_user.superadmin_role? || current_user.supervisor_role? %>
+            <% elsif current_user.superadmin_role? || current_user.supervisor_role? %>
               <a class="btn btn-flat"<%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {
                 confirm: "C'est ton dernier mot?" } %></a>
             <% end %>
