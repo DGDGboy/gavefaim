@@ -71,15 +71,17 @@
         <ul class="list-group">
             <% @restaurant.reviews.each do |review| %>
               <li class="list-group-item">
-                <% if current_user.photo.attached? %>
-                  <%= cl_image_tag "#{current_user.photo.key}", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<!--                 <% if current_user.photo.attached? %>
+                  <%= cl_image_tag "#{current_user.photo.key}" %>
                 <% else %>
                    <%= image_tag current_user.gender == "Homme" ? "avatar_homme.jpg" : "avatar_femme.png", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %> <br>
-                <h8><%= current_user.name %></h8>
+                <h8><%= current_user.name %></h8> -->
                 <p>le <%= review.created_at.strftime("%d-%m-%Y à %k:%M") %></p>
                 <h5><%= review.content %></h5>
+                <% if current_user || current_user.superadmin_role? %>
                 <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
+                <% end %>
              </li>
             <% end %>
         </ul>
