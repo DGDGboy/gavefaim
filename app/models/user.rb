@@ -10,4 +10,5 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :restaurants
+  has_many :reviews
 end

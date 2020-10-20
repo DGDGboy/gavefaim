@@ -70,13 +70,15 @@
         <br>
         <ul class="list-group">
             <% @restaurant.reviews.each do |review| %>
+
               <li class="list-group-item">
-<!--                 <% if current_user.photo.attached? %>
-                  <%= cl_image_tag "#{current_user.photo.key}" %>
+                <% if review.user.photo.attached? %>
+                  <%= cl_image_tag "#{review.user.photo.key}", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% else %>
-                   <%= image_tag current_user.gender == "Homme" ? "avatar_homme.jpg" : "avatar_femme.png", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %> <br>
-                <h8><%= current_user.name %></h8> -->
+                   <%= image_tag review.user.gender == "Homme" ? "avatar_homme.jpg" : "avatar_femme.png", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+
+                <h8><%= review.user.name %></h8>
                 <p>le <%= review.created_at.strftime("%d-%m-%Y à %k:%M") %></p>
                 <h5><%= review.content %></h5>
                 <% if current_user || current_user.superadmin_role? %>
