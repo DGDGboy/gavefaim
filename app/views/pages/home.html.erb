@@ -7,9 +7,9 @@
       </p>
       <!-- <p>Deux amoureux de la gastronomie vous présentent leurs découvertes culinaires bordelaises</p> -->
       <% if user_signed_in? %>
-        <a class="btn btn-flat" <%= link_to "Bienvenue #{current_user.name}", restaurants_path %></a>
+        <a class="btn btn-flat" <%= link_to "Bienvenue #{current_user.name}", restaurants_path %> </a>
       <% else %>
-        <a class="btn btn-flat" <%= link_to "Visiter", restaurants_path %></a>
+        <a class="btn btn-flat" <%= link_to "Visiter", restaurants_path %> </a>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,27 @@
+.signIn {
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.signIn .container {
+  max-width: 600px;
+}
+
+
+.signUp {
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  background: fixed;
+  padding: 100px 0;
+}
+
+.signUp .container {
+  max-width: 800px;
+}

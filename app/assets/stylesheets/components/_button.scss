@@ -1,4 +1,4 @@
-.btn-flat {
+.bouton .btn {
   color: #191919;
   padding: 8px 24px;
   border-color: #191919;
@@ -7,9 +7,47 @@
   border-width: 2px;
   opacity: 0.7;
   margin-top: 15px;
+  border-radius: 50px;
+  margin-bottom: 25px;
 }
 
-.btn-flat:hover {
+.bouton .btn:hover {
+  background: #191919;
+  color: white;
+}
+
+.bouton a {
+  color: #191919;
+  padding: 8px 24px;
+  border-color: #191919;
+  background: white;
+  transition: background 0.3s ease;
+  border-width: 2px;
+  opacity: 0.7;
+  margin-top: 15px;
+  border-radius: 50px;
+  margin-bottom: 25px;
+}
+
+.bouton a:hover {
+  background: #191919;
+  color: white;
+}
+
+.prez .btn-flat {
+  color: #191919;
+  padding: 7px 20px;
+  border-color: #191919;
+  background: white;
+  transition: background 0.3s ease;
+  border-width: 2px;
+  opacity: 0.7;
+  margin-top: 15px;
+  font-size: 17px;
+  border-radius: 45px;
+}
+
+.prez .btn-flat:hover {
   background: #191919;
   color: white;
 }

@@ -1,7 +1,7 @@
 <div class="signUp" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/405031/pexels-photo-405031.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover">
-   <div class="container">
-    <div class="row mt-5">
-      <div class="col-12 col-sm-8 col-md-4 offset-sm-2 offset-md-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
         <h2>Sign up</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -23,8 +23,8 @@
           <%= f.input :photo, as: :file%>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
+        <div class="bouton">
+          <%= f.button :submit, "Sign up" %>
         </div>
       <% end %>
 

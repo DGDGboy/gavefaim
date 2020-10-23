@@ -1,6 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
+<div class="signUp" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/1194433/pexels-photo-1194433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
 
       <h2>Modifier les infos du restaurant</h2>
       <br>
@@ -16,10 +17,13 @@
         <%= f.input :style, label: "Style du restaurant" , required: true%>
         <%= f.input :rating, label: "ta note", required: true %>
         <div class="form-actions">
+          <div class="bouton">
           <%= f.button :submit, "Actualiser l'article" %>
+          </div>
           <%= link_to "Retour", restaurant_path  %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
