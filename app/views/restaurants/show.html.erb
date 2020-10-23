@@ -6,9 +6,8 @@
         <div class="container">
           <div class="intro">
             <h1><%= @restaurant.name %></h1>
-            <p>Par <%= @restaurant.user.name %></p>
-            <h2>"<%= @restaurant.title %>"</h2>
-
+            <p><%= @restaurant.style %></p>
+            <p><%= @restaurant.address %></p>
           </div>
         </div>
       </div>
@@ -16,16 +15,30 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
-      <p>"<%= @restaurant.description %>"</p>
-      <p><%= @restaurant.address %></p>
-      <p><%= @restaurant.rating %></p>
-      <p><%= @restaurant.style %></p>
-<!--       <p><%= cl_image_tag @restaurant.images[0].key %></p>
- -->
+  <div class="postTitle">
+    <h2>" <%= @restaurant.title %> "</h2>
+    <div class="daterating">
+      <p>Article publié le <%= @restaurant.created_at.strftime("%d-%m-%Y à %k:%M") %> par <%= @restaurant.user.name %></p>
+      <h4><%= @restaurant.rating %>/10</h4>
+    </div>
+
+    <hr>
+  </div>
+
+      <!-----------descritpion------------>
+
+  <div class="container">
+    <div class="gridShowA">
+      <div class="presentation">
+
+
+        <p><%= @restaurant.description %></p>
+  <!--       <p><%= cl_image_tag @restaurant.images[0].key %></p>
+   -->
+      </div>
+        <!-----------Carousel------------>
       <div class="slider">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControlsA" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% @restaurant.images.each do |image| %>
               <% if image == @restaurant.images.first %>
@@ -37,33 +50,75 @@
               </div>
             <% end %>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleControlsA" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#carouselExampleControlsA" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
       </div>
+    </div>
+    <div class="gridShowB">
+      <div class="slider">
+        <div id="carouselExampleControlsB" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @restaurant.images.each do |image| %>
+              <% if image == @restaurant.images.last %>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
+              <% end %>
+                <%= cl_image_tag image.key, class: "d-block w-100" %>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControlsB" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControlsB" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="presentation">
+        <p><%= @restaurant.descriptionDeux %></p>
+      </div>
+    </div>
+  </div>
+
 <br>
+<hr>
 <!-----------commentaires------------>
-      <div class="intro">
-        <h1>Ce que vous en pensez</h1>
+      <div class="review">
+        <h2>Ce que vous en pensez</h2>
         <p>Si vous avez des commentaires ou des demandes particulières</p>
         <br>
+        <div class="bouton">
         <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %>
+        </div>
+        <br>
         <ul class="list-group">
             <% @restaurant.reviews.each do |review| %>
+
               <li class="list-group-item">
-                <ul><h8> <%= @restaurant.user.name %> a écrit le <%= review.created_at.strftime("%d-%m-%Y à %k:%M") %></h8></ul>
+                <% if review.user.photo.attached? %>
+                  <%= cl_image_tag "#{review.user.photo.key}", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                   <%= image_tag review.user.gender == "Homme" ? "avatar_homme.jpg" : "avatar_femme.png", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
                 <br>
+                <h8><%= review.user.name %></h8>
+                <p>le <%= review.created_at.strftime("%d-%m-%Y à %k:%M") %></p>
                 <h5><%= review.content %></h5>
-
-
+                <% if current_user || current_user.superadmin_role? %>
                 <%= link_to "Supprimer", review_path(review), method: :delete, data: { confirm: "Are you sure?" }  %>
-              </li>
+                <% end %>
+             </li>
             <% end %>
         </ul>
       </div>
@@ -73,11 +128,11 @@
       <br>
       <% if current_user.nil? %>
       <% elsif current_user.superadmin_role? || current_user.supervisor_role? %>
-        <a class="btn btn-flat"<%= link_to "Modifier", edit_restaurant_path(@restaurant), method: :delete, data: {
-          confirm: "C'est ton dernier mot?" } %></a>
+        <%= link_to "Modifier l'article", edit_restaurant_path(@restaurant) %>
       <% end %>
+      <%=  %>
 
-    </div>
-  </div>
+
+
 </div>
 
