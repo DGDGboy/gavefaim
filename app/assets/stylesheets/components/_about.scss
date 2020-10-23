@@ -64,7 +64,7 @@
   height:100px;
 }
 
-#grid{
+.grid{
   position: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -74,7 +74,7 @@
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  #grid {
+  .grid {
     grid-template-columns: 1fr;
   }
   .about .container{
@@ -112,7 +112,7 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 676px) {
-  #grid {
+  .grid {
     grid-template-columns: 1fr;
   }
   .about .container{
@@ -122,7 +122,7 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  #grid {
+  .grid {
     grid-template-columns: 1fr;
   }
   .about .container{
@@ -138,7 +138,7 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  #grid {
+  .grid {
     grid-template-columns: 1fr 1fr;
   }
   .about .container {

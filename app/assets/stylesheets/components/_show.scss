@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 50vh;
+  height: 65vh;
 }
 
 .slider img {
@@ -12,13 +12,16 @@
 
 
 .postTitle h2 {
-    color: grey;
+    color: #619bbd;
     border-radius: 4px;
     font-size: 2rem;
-    margin-bottom: 10px;
-    margin-top: 0px;
+    margin-bottom: 35px;
     text-align: center;
     margin-top: 35px;
+}
+
+.postTitle p{
+  font-size: 12px;
 }
 
 .body-container {
@@ -39,8 +42,10 @@
 .slider {
   width: 400px;
   height: 350px;
+}
 
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.presentationglobale{
+
 }
 
 .presentation p {
@@ -49,7 +54,8 @@
   font-size: 19px;
   margin-bottom: 10px;
   margin-top: 0px;
-  width: 632px;
+  text-align: justify;
+  width: 600px;
 }
 
 .bouton a{
@@ -84,7 +90,7 @@
 }
 
 .list-group-item p {
-  font-size: 14px;
+  font-size: 12px;
   color: grey;
 }
 
@@ -108,3 +114,170 @@
   height: 75px;
   border-radius: 50%;
 }
+
+.daterating {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -36px;
+  justify-content: space-between;
+
+    h4 {
+      margin-bottom: 25px;
+      font-family: 'Andrea Bilarosa'
+    }
+}
+
+.gridShowA {
+  margin-top: 35px;
+  position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  justify-content: space-between;
+  justify-items: end;
+}
+
+.gridShowB {
+  margin-top: 35px;
+  position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  justify-content: space-between;
+  justify-items: start;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .presentation p {
+    color: grey;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    text-align: justify;
+    width: auto;
+  }
+
+  .gridShowA {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+   .gridShowB {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+    .slider {
+      width: auto;
+      height: auto;
+    }
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 676px) {
+
+    .presentation p {
+    color: grey;
+    border-radius: 4px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    text-align: justify;
+    width: auto;
+  }
+
+  .gridShowA {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+   .gridShowB {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+    .slider {
+      width: auto;
+      height: auto;
+    }
+
+}
+
+// Medium devices (tablets, 500px and up)
+@media (min-width: 500px) {
+  .gridShowA {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+   .gridShowB {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .gridShowA {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+   .gridShowB {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+    .gridShowA {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+   .gridShowB {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+    .slider {
+      width: 400px;
+      height: 350px;
+    }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+  .gridShowA {
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+  }
+
+  .gridShowB {
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+  }
+
+  .slider {
+      width: 400px;
+      height: 350px;
+    }
+
+  .presentation p {
+  color: grey;
+  border-radius: 4px;
+  font-size: 19px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  width: 600px;
+}
+
+}
+
