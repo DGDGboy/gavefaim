@@ -13,7 +13,7 @@
               <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
             <% end %>
             <%= f.input :photo, as: :file %>
-            <%= f.input :name %>
+            <%= f.input :name, required: true, autofocus: true %>
             <%= f.input :gender, label: 'Genre', collection: User::GENDER %>
             <%= f.input :email, required: true, autofocus: true %>
 
