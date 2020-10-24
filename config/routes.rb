@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  get 'users/first_nam'
-  get 'users/last_name'
+  get 'users/name'
   get 'users/email'
   root to: 'pages#home'
 

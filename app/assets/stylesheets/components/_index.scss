@@ -45,12 +45,13 @@ em {
 }
 
 .top3{
-  background-position: right;
   background: fixed;
   padding-bottom: 1px;
   padding-top: 45px;
   margin-bottom: 65px;
   background-size: cover;
+  background-position: center;
+  background-blend-mode: color;
 }
 
 .hidden {
