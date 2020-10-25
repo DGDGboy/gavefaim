@@ -17,13 +17,13 @@ User.destroy_all
 
 
 puts "Creating Admins..."
-jerome = User.create!(name: "Jérôme", password: "29082020", role: 0, email: "toulouse.jerome@gmail.com")
-emilie = User.create!(name: "Emilie", password: "29082020", role: 0, email: "emilie.lws@gmail.com")
-gavefaim = User.create!(name: "Emilie et Jérôme", password: "29082020", role: 0,  email: "gavefaim@gmail.com")
+jerome = User.create!(name: "Jérôme", password: "29082020", email: "toulouse.jerome@gmail.com", superadmin_role: true)
+emilie = User.create!(name: "Emilie", password: "29082020", email: "emilie.lws@gmail.com", superadmin_role: true)
+gavefaim = User.create!(name: "Emilie et Jérôme", password: "29082020",  email: "gavefaim@gmail.com", superadmin_role: true)
 puts "Admins created ✅"
 
 puts "Creating User..."
-james = User.create!(name: "James", password: "29082020", role: 1, email: "james@gmail.com")
+james = User.create!(name: "James", password: "29082020", email: "james@gmail.com", user_role: true)
 puts "User created ✅"
 
 puts "Adding photo to Users..."
@@ -37,9 +37,9 @@ jerome.save!
 puts "Users' photo added ✅"
 
 puts "Creating restaurants..."
-racines = Restaurant.create(name: "Chez Racines", title: "Un Chef en or!", description: "Nous avons passé un moment incroyable", rating: 8, address: "59 Rue Georges Bonnac, 33000 Bordeaux", style: "semi gastronomique", user: jerome)
-symbiose = Restaurant.create(name: "Le Symbiose", title: "Des légumes oubliés!",description: "Pour nous, notre meilleure adresse bordelaise",rating: 9, address: "4 Quai des Chartrons, 33000 Bordeaux", style: "semi gastronomique", user: emilie)
-cyusha = Restaurant.create(name: "Le C'yusha", title: "L'histoire d'une famille!",description: "Une découverte fabuleuse,...",rating: 9, address: "12 Rue Ausone, 33000 Bordeaux", style: "gastronomique", user: emilie)
+racines = Restaurant.create(name: "Chez Racines", title: "Un Chef en or!", description: "Nous avons passé un moment incroyable", descriptionDeux: "", rating: 8, address: "59 Rue Georges Bonnac, 33000 Bordeaux", style: "semi gastronomique", user: jerome)
+symbiose = Restaurant.create(name: "Le Symbiose", title: "Des légumes oubliés!",description: "Pour nous, notre meilleure adresse bordelaise", descriptionDeux: "", rating: 9, address: "4 Quai des Chartrons, 33000 Bordeaux", style: "semi gastronomique", user: emilie)
+cyusha = Restaurant.create(name: "Le C'yusha", title: "L'histoire d'une famille!",description: "Une découverte fabuleuse,...", descriptionDeux: "", rating: 9, address: "12 Rue Ausone, 33000 Bordeaux", style: "gastronomique", user: emilie)
 puts "Restaurants created 🍲"
 
 

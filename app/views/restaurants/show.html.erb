@@ -98,7 +98,7 @@
         <p>Si vous avez des commentaires ou des demandes particulières</p>
         <br>
         <div class="bouton">
-        <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %>
+        <a class="btn" <%= link_to "poster un commentaire", new_restaurant_review_path(@restaurant)  %></a>
         </div>
         <br>
         <ul class="list-group">
@@ -106,7 +106,7 @@
 
               <li class="list-group-item">
                 <% if review.user.photo.attached? %>
-                  <%= cl_image_tag "#{review.user.photo.key}", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%= cl_image_tag "#{review.user.photo.key}", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% else %>
                    <%= image_tag review.user.gender == "Homme" ? "avatar_homme.jpg" : "avatar_femme.png", width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>

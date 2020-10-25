@@ -12,10 +12,16 @@
             <% if @user.photo.attached? %>
               <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
             <% end %>
-            <%= f.input :photo, as: :file %>
-            <%= f.input :name, required: true, autofocus: true %>
-            <%= f.input :gender, label: 'Genre', collection: User::GENDER %>
-            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :photo,
+                        as: :file %>
+            <%= f.input :name,
+                        label: 'Name',
+                        required: true %>
+            <%= f.input :gender, label: 'Genre',
+                        collection: User::GENDER %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
